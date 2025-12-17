@@ -1,4 +1,4 @@
-import { Bot, Workflow, Globe, Brain, ArrowRight, CheckCircle, Star, Calculator } from 'lucide-react';
+import { Bot, Phone, Workflow, Cpu, BarChart, Share2, ArrowRight, CheckCircle, Star, Calculator } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,35 +8,56 @@ import ContactFormDialog from '@/components/ContactFormDialog';
 const Services = () => {
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
   
-  const services = [{
-    icon: Bot,
-    title: "AI Agents & Chatbots",
-    description: "Custom AI assistants that handle customer support, lead qualification, and repetitive tasks 24/7.",
-    features: ["24/7 customer support automation", "Lead qualification & nurturing", "Knowledge base integration", "Multi-platform deployment"],
-    badge: "Most Popular",
-    badgeColor: "bg-gradient-to-r from-green-500 to-emerald-600"
-  }, {
-    icon: Workflow,
-    title: "Workflow Automation",
-    description: "Eliminate manual processes with intelligent automations that connect your tools and save 40+ hours weekly.",
-    features: ["Cross-platform integrations", "Data syncing & migrations", "Automated reporting", "Error handling & alerts"],
-    badge: "Best ROI",
-    badgeColor: "bg-gradient-to-r from-purple-500 to-violet-600"
-  }, {
-    icon: Globe,
-    title: "Web & App Development",
-    description: "Custom websites and applications built to scale your business and convert visitors into customers.",
-    features: ["Responsive web design", "Custom web applications", "E-commerce solutions", "API development"],
-    badge: "High Impact",
-    badgeColor: "bg-gradient-to-r from-orange-500 to-red-600"
-  }, {
-    icon: Brain,
-    title: "AI Integration & Strategy",
-    description: "Integrate AI into your existing systems with a strategic roadmap tailored to your business goals.",
-    features: ["AI readiness assessment", "Custom AI implementation", "Process optimization", "Team training & support"],
-    badge: "Long-term Growth",
-    badgeColor: "bg-gradient-to-r from-blue-500 to-cyan-600"
-  }];
+  const services = [
+    {
+      icon: Bot,
+      title: "AI Chatbots & Assistants",
+      description: "Intelligent AI chatbots that provide 24/7 customer support, lead qualification, and instant responses.",
+      features: ["24/7 customer support automation", "Natural language understanding", "Multi-platform deployment", "Lead qualification & nurturing"],
+      badge: "Most Popular",
+      badgeColor: "bg-gradient-to-r from-green-500 to-emerald-600"
+    },
+    {
+      icon: Phone,
+      title: "Voice-Call Automation",
+      description: "Automated voice systems that handle inbound/outbound calls, appointments, and customer service.",
+      features: ["IVR system automation", "Call routing & scheduling", "Voice analytics", "24/7 automated support"],
+      badge: "High Impact",
+      badgeColor: "bg-gradient-to-r from-purple-500 to-violet-600"
+    },
+    {
+      icon: Workflow,
+      title: "Workflow Automation",
+      description: "Streamline business processes by automating repetitive tasks and connecting disparate systems.",
+      features: ["Cross-platform integrations", "Process automation", "Data syncing & migrations", "Error handling & alerts"],
+      badge: "Best ROI",
+      badgeColor: "bg-gradient-to-r from-orange-500 to-red-600"
+    },
+    {
+      icon: Cpu,
+      title: "Custom CRM Integration",
+      description: "Seamlessly integrate AI and automation into your existing CRM or build custom CRM solutions.",
+      features: ["CRM system integration", "Custom pipeline automation", "Lead scoring automation", "Sales process optimization"],
+      badge: "Enterprise Ready",
+      badgeColor: "bg-gradient-to-r from-blue-500 to-cyan-600"
+    },
+    {
+      icon: BarChart,
+      title: "Data Analytics Insights",
+      description: "Transform raw data into actionable insights with AI-powered analytics and reporting automation.",
+      features: ["Automated reporting", "Predictive analytics", "Business intelligence dashboards", "Real-time data visualization"],
+      badge: "Data-Driven",
+      badgeColor: "bg-gradient-to-r from-indigo-500 to-purple-600"
+    },
+    {
+      icon: Share2,
+      title: "Social Media Automation",
+      description: "Automate content scheduling, engagement, and analytics across all social media platforms.",
+      features: ["Content scheduling automation", "Social listening & alerts", "Engagement automation", "Performance analytics"],
+      badge: "Growth Focused",
+      badgeColor: "bg-gradient-to-r from-pink-500 to-rose-600"
+    }
+  ];
 
   return <>
     {/* Problem/Pain Points Section */}
@@ -79,9 +100,9 @@ const Services = () => {
 
           <div className="cinematic-card p-8 shadow-cinematic liquid-card md:col-span-2 lg:col-span-1">
             <div className="text-4xl mb-4">⏰</div>
-            <h3 className="text-xl font-bold mb-4 text-white">No website or app to capture and convert your audience</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Data scattered across platforms with no clear insights</h3>
             <p className="text-gray-300">
-              You're leaving money on the table without a professional digital presence
+              You're making decisions without real-time data and analytics
             </p>
           </div>
         </div>
@@ -115,7 +136,7 @@ const Services = () => {
               <div className="text-4xl mb-4">📈</div>
               <h3 className="text-2xl font-bold mb-4 cinematic-gradient-text">40+ Hours Saved Weekly</h3>
               <p className="text-gray-300">
-                AI agents handle repetitive tasks while you focus on growth and strategy
+                AI automation handles repetitive tasks while you focus on growth and strategy
               </p>
             </div>
           </div>
@@ -123,9 +144,9 @@ const Services = () => {
           <div className="cinematic-card p-8 shadow-cinematic liquid-card">
             <div className="text-center">
               <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-2xl font-bold mb-4 cinematic-gradient-text">Instant Lead Response</h3>
+              <h3 className="text-2xl font-bold mb-4 cinematic-gradient-text">Instant Response 24/7</h3>
               <p className="text-gray-300">
-                Never miss an opportunity with 24/7 automated lead qualification and follow-up
+                Never miss an opportunity with AI-powered chatbots and voice automation
               </p>
             </div>
           </div>
@@ -133,9 +154,9 @@ const Services = () => {
           <div className="cinematic-card p-8 shadow-cinematic liquid-card">
             <div className="text-center">
               <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-2xl font-bold mb-4 cinematic-gradient-text">Professional Digital Presence</h3>
+              <h3 className="text-2xl font-bold mb-4 cinematic-gradient-text">Data-Driven Decisions</h3>
               <p className="text-gray-300">
-                Custom websites and apps that convert visitors and showcase your brand
+                Get actionable insights from automated analytics and reporting systems
               </p>
             </div>
           </div>
@@ -158,15 +179,15 @@ const Services = () => {
         {/* Header with compelling messaging */}
         <div className="text-center space-y-6 mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight cinematic-text-shadow">
-            Services That
+            Complete Automation
             <span className="cinematic-gradient-text block mt-2">
-              Actually Drive Results
+              Solutions That Drive Results
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed cinematic-text-shadow">
-            Stop wasting time on manual tasks. Our data-driven approach has helped businesses 
-            <span className="font-bold cinematic-gradient-text"> save 40+ hours per week</span> and 
-            <span className="font-bold cinematic-gradient-text"> increase revenue by 3x</span>.
+            Transform your business with end-to-end automation that
+            <span className="font-bold cinematic-gradient-text"> saves 40+ hours per week</span> and
+            <span className="font-bold cinematic-gradient-text"> boosts efficiency by 3x</span>.
           </p>
           
           {/* Social proof numbers with liquid design */}
@@ -177,7 +198,7 @@ const Services = () => {
             </div>
             <div className="text-center cinematic-card p-4 shadow-cinematic liquid-card">
               <div className="text-2xl font-bold cinematic-gradient-text">3x</div>
-              <div className="text-sm text-gray-400">Revenue Growth</div>
+              <div className="text-sm text-gray-400">Efficiency Boost</div>
             </div>
             <div className="text-center cinematic-card p-4 shadow-cinematic liquid-card">
               <div className="text-2xl font-bold cinematic-gradient-text">14 Days</div>
@@ -186,8 +207,8 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        {/* Services Grid - Updated to 6 services */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

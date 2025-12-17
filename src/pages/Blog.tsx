@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { fetchPosts, type SanityPost } from '@/lib/sanity'
+import { getPosts, type Post } from '@/lib/api'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -11,13 +11,13 @@ import Breadcrumb from '@/components/Breadcrumb'
 import SEO from '@/components/SEO'
 
 const Blog = () => {
-  const [posts, setPosts] = useState<SanityPost[]>([])
+  const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const fetchedPosts = await fetchPosts()
+        const fetchedPosts = await getPosts()
         setPosts(fetchedPosts)
       } catch (error) {
         console.error('Failed to load posts:', error)
@@ -95,13 +95,13 @@ const Blog = () => {
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts.map((post) => (
-                  <Link key={post._id} to={`/blog/${post.slug?.current || post._id}`}>
+                  <Link key={post.id} to={`/blog/${post.slug}`}>
                     <Card className="group hover:shadow-lg transition-shadow duration-300 h-full cursor-pointer">
-                      {post.mainImage && (
+                      {post.main_image && (
                         <div className="overflow-hidden rounded-t-lg">
                           <img
-                            src={post.mainImage.asset.url}
-                            alt={post.mainImage.alt || post.title}
+                            src={post.main_image}
+                            alt={post.title}
                             className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
@@ -112,24 +112,24 @@ const Blog = () => {
                         </CardTitle>
                         <div className="flex items-center justify-between">
                           <Badge variant="secondary" className="w-fit">
-                            {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                            {new Date(post.published_at).toLocaleDateString('en-US', {
                               year: 'numeric',
                               month: 'long',
                               day: 'numeric'
                             })}
                           </Badge>
-                          {post.author && (
+                          {post.author_name && (
                             <div className="flex items-center gap-2">
                               <Avatar className="h-6 w-6">
                                 <AvatarImage 
-                                  src={post.author.image?.asset.url} 
-                                  alt={post.author.name} 
+                                  src={post.author_image} 
+                                  alt={post.author_name} 
                                 />
                                 <AvatarFallback className="text-xs">
-                                  {post.author.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                                  {post.author_name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                                 </AvatarFallback>
                               </Avatar>
-                              <span className="text-sm text-muted-foreground">{post.author.name}</span>
+                              <span className="text-sm text-muted-foreground">{post.author_name}</span>
                             </div>
                           )}
                         </div>

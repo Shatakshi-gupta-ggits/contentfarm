@@ -2,34 +2,37 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { MapPin, Clock } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { getJobs, type Job } from '@/lib/api';
 
 const CareerPositions = () => {
-  const positions = [
-    {
-      title: "Video Editor",
-      type: "Full-time",
-      location: "Remote",
-      description: "Join our creative team to produce high-quality video content for SaaS companies. Experience with After Effects, Premiere Pro, and motion graphics required.",
-      requirements: [
-        "3+ years of video editing experience",
-        "Proficiency in Adobe Creative Suite",
-        "Motion graphics and animation skills",
-        "Portfolio showcasing SaaS/tech content"
-      ]
-    },
-    {
-      title: "Content Strategist",
-      type: "Part-time",
-      location: "Remote",
-      description: "Help develop content strategies for our clients and create compelling narratives for video projects.",
-      requirements: [
-        "Experience in content marketing",
-        "Understanding of SaaS industry",
-        "Strong writing and storytelling skills",
-        "Experience with video content planning"
-      ]
-    }
-  ];
+  const [positions, setPositions] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const jobs = await getJobs();
+        setPositions(jobs);
+      } catch (error) {
+        console.error('Failed to fetch jobs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-20 cinematic-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          Loading positions...
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 cinematic-section">

@@ -4,8 +4,21 @@ import ModernHeader from "@/components/ModernHeader";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const Schedule = () => {
+  useEffect(() => {
+    const src = "https://assets.calendly.com/assets/external/widget.js";
+    const exists = Array.from(document.getElementsByTagName("script")).some(
+      (s) => s.src === src
+    );
+    if (!exists) {
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  }, []);
   return <>
     <SEO title="Schedule a Call - Start Your AI Automation Journey | AutomateHub" description="Book a free 15-minute discovery call to discuss your AI automation strategy. Get a custom audit and implementation timeline for your business growth." keywords="schedule call, AI automation consultation, business automation consultation, workflow automation call" />
     <div className="min-h-screen bg-background">
@@ -156,14 +169,11 @@ const Schedule = () => {
               </p>
             </div>
             
-            {/* Calendly Embed */}
-            <div className="calendly-embed-container" style={{
-              minHeight: '630px'
-            }}>
-              <iframe src="https://calendly.com/kvit/15-minutes-discovery-call" width="100%" height="630" frameBorder="0" title="Schedule a call with AutomateHub" style={{
-                border: 0
-              }} />
-            </div>
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/shatakshig2005/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=e9bf09"
+              style={{ minWidth: "320px", height: "700px" }}
+            />
           </div>
         </div>
       </section>

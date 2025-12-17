@@ -19,14 +19,14 @@ const AboutFounders = () => {
                 <img alt="Sarah Johnson - Co-founder" className="w-full h-full rounded-full object-cover" src="/lovable-uploads/279b69c3-727e-44b2-8758-b80bef592572.png" />
               </div>
             </div>
-            <h4 className="text-2xl font-semibold text-white mb-2">Vady Kvitey</h4>
-            <p className="text-yellow-400 font-medium mb-4 text-lg">Co-founder & Creative Director</p>
+            <h4 className="text-2xl font-semibold text-white mb-2">Shatakshi Gupta</h4>
+            <p className="text-yellow-400 font-medium mb-4 text-lg">Founder & Creative Director</p>
             <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <span className="bg-yellow-400/10 text-yellow-400 text-sm font-medium px-4 py-2 rounded-full border border-yellow-400/20">Video Production Expert</span>
-              <span className="bg-yellow-400/10 text-yellow-400 text-sm font-medium px-4 py-2 rounded-full border border-yellow-400/20">8 Years Experience</span>
+              <span className="bg-yellow-400/10 text-yellow-400 text-sm font-medium px-4 py-2 rounded-full border border-yellow-400/20">Agents Production Expert</span>
+              <span className="bg-yellow-400/10 text-yellow-400 text-sm font-medium px-4 py-2 rounded-full border border-yellow-400/20">4 Years Experience</span>
               <span className="bg-white/5 text-gray-200 text-sm font-medium px-4 py-2 rounded-full border border-white/20">Brand Storyteller</span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">The creative powerhouse behind our stunning visuals. Vady has worked with major brands like Bosch and Siberian Wellness, creating everything from YouTube content to real estate ads. His secret? Making every frame count in telling your brand's story.</p>
+            <p className="text-gray-300 mb-6 leading-relaxed">The creative powerhouse behind our stunning visuals. Shatakshi has worked with major brands like Bosch and Siberian Wellness, creating everything from YouTube content to real estate ads. His secret? Making every frame count in telling your brand's story.</p>
             
             <div className="flex justify-center gap-4">
               <a href="https://www.instagram.com/kvitey.contentcreator" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-medium">
@@ -41,7 +41,7 @@ const AboutFounders = () => {
                 <img alt="Maria Santos - Co-founder" className="w-full h-full rounded-full object-cover" src="/lovable-uploads/67d96de1-d7bb-4c17-9ece-5e3cadb885cd.png" />
               </div>
             </div>
-            <h4 className="text-2xl font-semibold text-white mb-2">Julia Yuvchenko</h4>
+            <h4 className="text-2xl font-semibold text-white mb-2">Kashis Bhatt</h4>
             <p className="text-yellow-400 font-medium mb-4 text-lg">Co-founder
           </p>
             <div className="flex flex-wrap justify-center gap-3 mb-6">
@@ -49,7 +49,7 @@ const AboutFounders = () => {
               <span className="bg-yellow-400/10 text-yellow-400 text-sm font-medium px-4 py-2 rounded-full border border-yellow-400/20">12 Years Experience</span>
               <span className="bg-white/5 text-gray-200 text-sm font-medium px-4 py-2 rounded-full border border-white/20">Strategy Expert</span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">The strategic mind who turns ideas into reality. With 12 years in IT startups, Julia ensures every project runs smoothly from concept to completion. She's your guarantee that deadlines are met and expectations are exceeded.</p>
+            <p className="text-gray-300 mb-6 leading-relaxed">The strategic mind who turns ideas into reality. With 4 years in IT startups, Shatakshi ensures every project runs smoothly from concept to completion. She's your guarantee that deadlines are met and expectations are exceeded.</p>
             <div className="flex justify-center gap-4">
               <a href="https://www.linkedin.com/in/yuliya-yuvchenko/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-medium">
                 <Linkedin className="w-5 h-5" />

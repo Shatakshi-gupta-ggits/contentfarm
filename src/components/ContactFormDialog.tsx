@@ -9,6 +9,8 @@ interface ContactFormDialogProps {
   onOpenChange: (open: boolean) => void;
 }
 
+import { submitLead } from '@/lib/api';
+
 const ContactFormDialog = ({ isOpen, onOpenChange }: ContactFormDialogProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -20,7 +22,6 @@ const ContactFormDialog = ({ isOpen, onOpenChange }: ContactFormDialogProps) => 
           <DialogTitle className="text-2xl font-bold">Get Your Free Video Growth Plan</DialogTitle>
         </DialogHeader>
         <form 
-          name="submit-to-google-sheet"
           className="space-y-4"
           onSubmit={async (e) => {
             e.preventDefault();
@@ -31,10 +32,13 @@ const ContactFormDialog = ({ isOpen, onOpenChange }: ContactFormDialogProps) => 
             const formData = new FormData(form);
             
             try {
-              await fetch('https://script.google.com/macros/s/AKfycbyJEtAJpsEUV17m4uN7snecrUc9LlN0JPiDWDyHLQ39E0XsZtjuIKuDaPYlDmIC_is/exec', {
-                method: 'POST',
-                body: formData,
+              await submitLead({
+                first_name: formData.get('firstName') as string,
+                last_name: formData.get('lastName') as string,
+                email: formData.get('email') as string,
+                company_website: formData.get('companyWebsite') as string,
               });
+              
               form.reset();
               onOpenChange(false);
               toast({

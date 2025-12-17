@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { PortableText } from '@portabletext/react'
-import { fetchPostBySlug, type SanityPost } from '@/lib/sanity'
+import { getPostBySlug, type Post } from '@/lib/api'
 import ModernHeader from '@/components/ModernHeader'
 import Footer from '@/components/Footer'
 import SEO from '@/components/SEO'
@@ -13,7 +12,7 @@ import { ArrowLeft } from 'lucide-react'
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>()
-  const [post, setPost] = useState<SanityPost | null>(null)
+  const [post, setPost] = useState<Post | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
 
@@ -26,7 +25,7 @@ const BlogPost = () => {
       }
 
       try {
-        const fetchedPost = await fetchPostBySlug(slug)
+        const fetchedPost = await getPostBySlug(slug)
         if (fetchedPost) {
           setPost(fetchedPost)
         } else {
@@ -101,7 +100,7 @@ const BlogPost = () => {
       <SEO 
         title={`${post.title} - ContentFarm Blog`}
         description={post.excerpt || `Read ${post.title} on the ContentFarm blog`}
-        url={`https://contentfarm.club/blog/${post.slug.current}`}
+        url={`https://contentfarm.club/blog/${post.slug}`}
       />
       
       <ModernHeader />
@@ -123,26 +122,26 @@ const BlogPost = () => {
             </h1>
             
             <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
-              {post.author && (
+              {post.author_name && (
                 <div className="flex items-center gap-3">
                   <Avatar className="h-12 w-12">
                     <AvatarImage 
-                      src={post.author.image?.asset.url} 
-                      alt={post.author.name} 
+                      src={post.author_image} 
+                      alt={post.author_name} 
                     />
                     <AvatarFallback>
-                      {post.author.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                      {post.author_name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-semibold">{post.author.name}</p>
+                    <p className="font-semibold">{post.author_name}</p>
                     <p className="text-muted-foreground text-sm">Author</p>
                   </div>
                 </div>
               )}
               
               <Badge variant="secondary">
-                {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                {new Date(post.published_at).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
@@ -150,11 +149,11 @@ const BlogPost = () => {
               </Badge>
             </div>
 
-            {post.mainImage && (
+            {post.main_image && (
               <div className="rounded-lg overflow-hidden mb-8">
                 <img
-                  src={post.mainImage.asset.url}
-                  alt={post.mainImage.alt || post.title}
+                  src={post.main_image}
+                  alt={post.title}
                   className="w-full h-64 md:h-96 object-cover"
                 />
               </div>
@@ -168,43 +167,20 @@ const BlogPost = () => {
               </p>
             )}
             
-            {post.body && (
+            {post.content && (
               <div className="text-foreground leading-relaxed">
-                <PortableText 
-                  value={post.body}
-                  components={{
-                    block: {
-                      normal: ({children}) => <p className="mb-4 leading-relaxed">{children}</p>,
-                      h1: ({children}) => <h1 className="text-3xl font-bold mt-8 mb-4">{children}</h1>,
-                      h2: ({children}) => <h2 className="text-2xl font-bold mt-6 mb-3">{children}</h2>,
-                      h3: ({children}) => <h3 className="text-xl font-bold mt-4 mb-2">{children}</h3>,
-                      blockquote: ({children}) => <blockquote className="border-l-4 border-primary pl-4 italic my-4">{children}</blockquote>,
-                    },
-                    marks: {
-                      strong: ({children}) => <strong className="font-bold">{children}</strong>,
-                      em: ({children}) => <em className="italic">{children}</em>,
-                      link: ({children, value}) => (
-                        <a href={value.href} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                          {children}
-                        </a>
-                      ),
-                    },
-                    list: {
-                      bullet: ({children}) => <ul className="list-disc list-inside mb-4 space-y-1">{children}</ul>,
-                      number: ({children}) => <ol className="list-decimal list-inside mb-4 space-y-1">{children}</ol>,
-                    },
-                    listItem: {
-                      bullet: ({children}) => <li className="mb-1">{children}</li>,
-                      number: ({children}) => <li className="mb-1">{children}</li>,
-                    },
-                  }}
-                />
+                {typeof post.content === 'string' ? (
+                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                ) : (
+                  <div className="whitespace-pre-wrap">
+                    {JSON.stringify(post.content, null, 2)}
+                  </div>
+                )}
               </div>
             )}
           </div>
         </article>
       </main>
-      
       <Footer />
     </div>
   )
