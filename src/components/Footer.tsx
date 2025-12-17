@@ -22,10 +22,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <div className="text-2xl font-bold cinematic-gradient-text">
-              ContentFarm
+              AutomateHub
             </div>
             <p className="text-gray-300">
-              We help SaaS startups scale with high-converting video content that drives real business results.
+              We help businesses scale with AI agents, automation, and custom web/app development that drives real results.
             </p>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-gray-300">
@@ -51,10 +51,11 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-300">
               <li>
                 <Link 
-                  to="/product-demo-videos" 
+                  to="/#services" 
                   className="hover:text-yellow-400 transition-colors"
+                  onClick={() => handleSectionNavigation('#services')}
                 >
-                  Product Demo Videos
+                  AI Agents & Chatbots
                 </Link>
               </li>
               <li>
@@ -63,7 +64,7 @@ const Footer = () => {
                   className="hover:text-yellow-400 transition-colors"
                   onClick={() => handleSectionNavigation('#services')}
                 >
-                  Explainer Videos
+                  Workflow Automation
                 </Link>
               </li>
               <li>
@@ -72,7 +73,7 @@ const Footer = () => {
                   className="hover:text-yellow-400 transition-colors"
                   onClick={() => handleSectionNavigation('#services')}
                 >
-                  Onboarding Videos
+                  Web Development
                 </Link>
               </li>
               <li>
@@ -81,7 +82,7 @@ const Footer = () => {
                   className="hover:text-yellow-400 transition-colors"
                   onClick={() => handleSectionNavigation('#services')}
                 >
-                  Webinar Repurposing
+                  App Development
                 </Link>
               </li>
               <li>
@@ -90,7 +91,7 @@ const Footer = () => {
                   className="hover:text-yellow-400 transition-colors"
                   onClick={() => handleSectionNavigation('#services')}
                 >
-                  YouTube Content
+                  AI Integration
                 </Link>
               </li>
             </ul>
@@ -101,10 +102,8 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-300">
               <li><Link to="/about" className="hover:text-yellow-400 transition-colors">About Us</Link></li>
               <li><Link to="/case-studies" className="hover:text-yellow-400 transition-colors">Case Studies</Link></li>
-              <li><Link to="/video-growth" className="hover:text-yellow-400 transition-colors">Video Growth</Link></li>
-              <li><Link to="/creator-led" className="hover:text-yellow-400 transition-colors">Creator-Led</Link></li>
+              <li><Link to="/ai-automation" className="hover:text-yellow-400 transition-colors">AI Automation</Link></li>
               <li><Link to="/blog" className="hover:text-yellow-400 transition-colors">Blog</Link></li>
-              <li><Link to="/youtube-script-generator" className="hover:text-yellow-400 transition-colors">YouTube Script Generator</Link></li>
               <li><Link to="/pricing" className="hover:text-yellow-400 transition-colors">Pricing</Link></li>
               <li><Link to="/career" className="hover:text-yellow-400 transition-colors">Career</Link></li>
             </ul>
@@ -113,7 +112,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-300 text-sm">© 2025 ContentFarm. All rights reserved.</p>
+            <p className="text-gray-300 text-sm">© 2025 AutomateHub. All rights reserved.</p>
             <div className="flex gap-6 text-sm text-gray-300">
               <Link to="/privacy-policy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
               <Link to="/terms-of-service" className="hover:text-yellow-400 transition-colors">Terms of Service</Link>

@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+
 const ModernHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,6 +31,7 @@ const ModernHeader = () => {
       }
     }
   }, [location]);
+
   const handleSectionNavigation = (sectionId: string) => {
     setIsMenuOpen(false);
     if (location.pathname === '/') {
@@ -41,30 +43,31 @@ const ModernHeader = () => {
       }
     }
   };
+
   const servicesItems = [{
-    name: 'Product Demo Videos',
-    href: '/product-demo-videos'
+    name: 'AI Agents & Chatbots',
+    href: '/#services'
   }, {
-    name: 'Shorts',
-    href: '/shorts'
+    name: 'Workflow Automation',
+    href: '/#services'
   }, {
-    name: 'Video Production',
-    href: '/video-production'
+    name: 'Web & App Development',
+    href: '/#services'
   }];
+
   const resourcesItems = [{
-    name: 'Script Generator',
-    href: '/youtube-script-generator'
-  }, {
     name: 'Blog',
     href: '/blog'
   }];
-  return <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50' : 'bg-background/90 backdrop-blur-md border-b border-border/30'}`}>
+
+  return (
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50' : 'bg-background/90 backdrop-blur-md border-b border-border/30'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300">
-              ContentFarm
+              AutomateHub
             </Link>
           </div>
           
@@ -78,18 +81,18 @@ const ModernHeader = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56 bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl">
                 <DropdownMenuItem asChild>
-                  <Link to="/shorts" className="w-full text-foreground hover:text-primary hover:bg-accent/50 transition-colors duration-200">
-                    Shorts
+                  <Link to="/#services" onClick={() => handleSectionNavigation('#services')} className="w-full text-foreground hover:text-primary hover:bg-accent/50 transition-colors duration-200">
+                    AI Agents & Chatbots
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/product-demo-videos" className="w-full text-foreground hover:text-primary hover:bg-accent/50 transition-colors duration-200">
-                    Product Demo Videos
+                  <Link to="/#services" onClick={() => handleSectionNavigation('#services')} className="w-full text-foreground hover:text-primary hover:bg-accent/50 transition-colors duration-200">
+                    Workflow Automation
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/video-production" className="w-full text-foreground hover:text-primary hover:bg-accent/50 transition-colors duration-200">
-                    Video Production
+                  <Link to="/#services" onClick={() => handleSectionNavigation('#services')} className="w-full text-foreground hover:text-primary hover:bg-accent/50 transition-colors duration-200">
+                    Web & App Development
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -100,25 +103,19 @@ const ModernHeader = () => {
             </Link>
 
             <Link to="/case-studies" className="text-foreground hover:text-primary transition-colors duration-200 font-medium whitespace-nowrap">
-              Case Study
-            </Link>
-
-            <Link to="/youtube-script-generator" className="text-foreground hover:text-primary transition-colors duration-200 font-medium whitespace-nowrap">
-              Script Generator
+              Case Studies
             </Link>
 
             <Link to="/about" className="text-foreground hover:text-primary transition-colors duration-200 font-medium whitespace-nowrap">
               About
             </Link>
-
-            
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Link to="/creator-led">
+            <Link to="/ai-automation">
               <Button variant="outline" size="sm" className="font-semibold border-primary/50 text-primary hover:bg-primary/10 transition-all duration-500 hover:scale-110 animate-[premium-glow_3s_ease-in-out_infinite] hover:animate-none relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:animate-[shimmer_3s_ease-in-out_infinite] px-8">
-                Creator-Led
+                AI Automation
               </Button>
             </Link>
             <a href="https://calendly.com/kvit/15-minutes-discovery-call" target="_blank" rel="noopener noreferrer">
@@ -144,40 +141,34 @@ const ModernHeader = () => {
             {/* Mobile Services */}
             <div className="space-y-2">
               <div className="text-foreground font-medium py-2">Services</div>
-              {servicesItems.map(item => <Link key={item.href} to={item.href} className="block text-muted-foreground hover:text-primary transition-colors duration-200 pl-4 py-1" onClick={() => setIsMenuOpen(false)}>
+              {servicesItems.map(item => (
+                <Link key={item.href + item.name} to={item.href} className="block text-muted-foreground hover:text-primary transition-colors duration-200 pl-4 py-1" onClick={() => setIsMenuOpen(false)}>
                   {item.name}
-                </Link>)}
+                </Link>
+              ))}
             </div>
 
             <Link to="/case-studies" className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-              Showcase
+              Case Studies
             </Link>
             
             <Link to="/#how-it-works" className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2" onClick={() => handleSectionNavigation('#how-it-works')}>
               How It Works
             </Link>
 
-            {/* Mobile Resources */}
-            <div className="space-y-2">
-              <div className="text-foreground font-medium py-2">Resources</div>
-              {resourcesItems.map(item => <Link key={item.href} to={item.href} className="block text-muted-foreground hover:text-primary transition-colors duration-200 pl-4 py-1" onClick={() => setIsMenuOpen(false)}>
-                  {item.name}
-                </Link>)}
-            </div>
-
             <Link to="/about" className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
               About
             </Link>
 
-            <Link to="/creator-led" className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-              Creator-Led
+            <Link to="/ai-automation" className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              AI Automation
             </Link>
 
             {/* Mobile CTAs */}
             <div className="pt-4 space-y-3">
-              <Link to="/creator-led">
+              <Link to="/ai-automation">
                 <Button variant="outline" className="w-full font-semibold border-primary/50 text-primary hover:bg-primary/10 transition-all duration-500 hover:scale-110 animate-[premium-glow_3s_ease-in-out_infinite] hover:animate-none relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:animate-[shimmer_3s_ease-in-out_infinite]" onClick={() => setIsMenuOpen(false)}>
-                  Creator-Led
+                  AI Automation
                 </Button>
               </Link>
               <a href="https://calendly.com/kvit/15-minutes-discovery-call" target="_blank" rel="noopener noreferrer">
@@ -189,6 +180,8 @@ const ModernHeader = () => {
           </nav>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default ModernHeader;
