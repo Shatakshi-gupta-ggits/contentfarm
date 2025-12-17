@@ -2,7 +2,6 @@ import ModernHeader from '@/components/ModernHeader';
 import SmartBar from '@/components/SmartBar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
-import VSL from '@/components/VSL';
 import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
@@ -12,36 +11,36 @@ import { MessageCircle, Figma, FileText } from 'lucide-react';
 const Index = () => {
   const services = [
     {
-      name: "Product Demo Videos",
-      description: "Turn prospects into customers with demos that showcase your SaaS like never before.",
-      provider: "ContentFarm"
+      name: "AI Agents & Chatbots",
+      description: "Custom AI assistants that handle customer support, lead qualification, and repetitive tasks 24/7.",
+      provider: "AutomateHub"
     },
     {
-      name: "Explainer & Onboarding Videos",
-      description: "Reduce churn by 40% with crystal-clear onboarding that gets users to 'aha!' moments faster.",
-      provider: "ContentFarm"
+      name: "Workflow Automation",
+      description: "Eliminate manual processes with intelligent automations that connect your tools and save 40+ hours weekly.",
+      provider: "AutomateHub"
     },
     {
-      name: "Webinars & Event Repurposing",
-      description: "Transform one event into 10+ pieces of engaging content that work 24/7 for your business.",
-      provider: "ContentFarm"
+      name: "Web & App Development",
+      description: "Custom websites and applications built to scale your business and convert visitors into customers.",
+      provider: "AutomateHub"
     },
     {
-      name: "YouTube Content Strategy",
-      description: "Build authority and generate leads with YouTube content that ranks on page 1 and converts viewers.",
-      provider: "ContentFarm"
+      name: "AI Integration & Strategy",
+      description: "Integrate AI into your existing systems with a strategic roadmap tailored to your business goals.",
+      provider: "AutomateHub"
     }
   ];
 
   return (
     <div className="min-h-screen">
       <SEO 
-        title="ContentFarm - Professional SaaS Video Production Agency | Product Demos & Explainer Videos"
-        description="Leading SaaS video production agency specializing in high-converting product demos, explainer videos, and onboarding content. 30-day results guarantee. Trusted by top SaaS companies worldwide. Transform your product into engaging video content that drives conversions and reduces churn by 40%."
-        keywords="SaaS video production agency, product demo videos, explainer videos, SaaS marketing videos, video content marketing, onboarding videos, product video production, B2B video marketing, software demo videos, SaaS video agency, video production Lisbon Portugal, YouTube content strategy, webinar repurposing, video marketing services"
-        url="https://contentfarm.club"
+        title="AutomateHub - AI Agents, Automation & Web Development Agency | Save 40+ Hours Weekly"
+        description="Leading AI automation agency specializing in custom AI agents, workflow automation, and web/app development. 90-day ROI guarantee. Take your business to the next level with intelligent automation that saves you 40+ hours per week."
+        keywords="AI agents, automation agency, workflow automation, AI chatbots, web development, app development, business automation, AI integration, custom AI solutions, automation consulting, AI strategy, digital transformation"
+        url="https://automatehub.io"
         type="website"
-        image="https://contentfarm.club/lovable-uploads/42844e19-815c-453d-9d1d-66e5ec0590fb.png"
+        image="https://automatehub.io/lovable-uploads/42844e19-815c-453d-9d1d-66e5ec0590fb.png"
       />
       
       <StructuredData type="organization" />
@@ -53,7 +52,6 @@ const Index = () => {
       <div id="services">
         <Services />
       </div>
-      <VSL />
       <div id="how-it-works">
         <HowItWorks />
       </div>
@@ -87,7 +85,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Preview in Figma</h3>
               <p className="text-gray-300">
-                Watch your video thumbnails and storyboards come to life in Figma. Review designs, leave comments, and approve concepts before production starts.
+                See your automations and workflows mapped out visually. Review designs, leave comments, and approve concepts before implementation starts.
               </p>
             </div>
 
@@ -97,7 +95,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Track in Notion</h3>
               <p className="text-gray-300">
-                Complete transparency with our Notion workspace. Track video requests, monitor progress, access deliverables, and stay updated on every milestone.
+                Complete transparency with our Notion workspace. Track automation builds, monitor progress, access deliverables, and stay updated on every milestone.
               </p>
             </div>
           </div>

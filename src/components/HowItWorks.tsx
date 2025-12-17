@@ -1,4 +1,4 @@
-import { MessageSquare, Lightbulb, Video, Rocket } from 'lucide-react';
+import { MessageSquare, Lightbulb, Bot, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import ContactFormDialog from '@/components/ContactFormDialog';
@@ -9,33 +9,33 @@ const HowItWorks = () => {
     {
       icon: MessageSquare,
       title: "Discovery Call",
-      description: "We dive deep into your goals, audience, and success metrics in a 30-minute strategy session.",
+      description: "We dive deep into your workflows, pain points, and automation opportunities in a 30-minute strategy session.",
       timeline: "Day 1",
-      proof: "Over 150 SaaS founders started here",
+      proof: "Over 150 businesses started here",
       color: "from-blue-500 to-blue-600"
     },
     {
       icon: Lightbulb,
-      title: "Strategy & Script",
-      description: "Our team creates a data-driven video strategy and compelling script tailored to your audience.",
+      title: "Strategy & Design",
+      description: "Our team creates a custom automation blueprint and AI agent architecture tailored to your specific needs.",
       timeline: "Days 2-4",
-      proof: "92% script approval on first draft",
+      proof: "92% strategy approval on first draft",
       color: "from-purple-500 to-purple-600"
     },
     {
-      icon: Video,
-      title: "Production & Edit",
-      description: "We bring your vision to life with professional production, animation, and post-production.",
+      icon: Bot,
+      title: "Build & Integrate",
+      description: "We build your AI agents, automations, and integrations with your existing tools and systems.",
       timeline: "Days 5-12",
-      proof: "Cinema-quality output every time",
+      proof: "Enterprise-grade solutions every time",
       color: "from-green-500 to-green-600"
     },
     {
       icon: Rocket,
       title: "Launch & Optimize",
-      description: "We help you deploy and track performance, making data-driven optimizations for maximum ROI.",
+      description: "We deploy, monitor, and continuously optimize your automations for maximum ROI and efficiency.",
       timeline: "Days 13-14",
-      proof: "Average 3.4x conversion increase",
+      proof: "Average 40+ hours saved weekly",
       color: "from-orange-500 to-orange-600"
     }
   ];
@@ -60,7 +60,7 @@ const HowItWorks = () => {
             </h2>
           </div>
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
-            Our proven 14-day process takes you from initial brief to high-converting video content. 
+            Our proven 14-day process takes you from initial audit to fully automated workflows. 
             <span className="text-white font-normal"> No surprises, just results.</span>
           </p>
         </div>
@@ -150,7 +150,7 @@ const HowItWorks = () => {
                   Ready to Get Started?
                 </h3>
                 <p className="text-lg md:text-xl text-gray-300 font-light max-w-xl mx-auto leading-relaxed">
-                  Book a free strategy call and we'll create a custom video roadmap for your SaaS in just 30 minutes.
+                  Book a free strategy call and we'll create a custom automation roadmap for your business in just 30 minutes.
                 </p>
                 <div className="pt-4">
                 <Button 
@@ -158,7 +158,7 @@ const HowItWorks = () => {
                   className="cinematic-cta text-base md:text-lg px-10 py-6 font-semibold shadow-glow hover:shadow-glow hover:scale-105 transition-all duration-500"
                   onClick={() => setIsDialogOpen(true)}
                 >
-                  Get Your Free Video Growth Plan →
+                  Get Your Free Automation Audit →
                 </Button>
                 <ContactFormDialog isOpen={isDialogOpen} onOpenChange={setIsDialogOpen} />
                 </div>
